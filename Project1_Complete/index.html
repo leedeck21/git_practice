@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!--The below bit of code prevents error "GET http://localhost/favicon.ico"-->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+    <title>API Selector</title>
+</head>
+
+<body>
+    <h1 class="text-center">API Selector</h1>
+
+    <div class="container">
+        <table class="table table-borderless table-striped border-primary">
+            <thead class="table-dark">
+                <tr class="text-center">
+                    <th>API name</th>
+                    <th>API Description</th>
+                    <th>Activate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Postcode Lookup</th>
+                    <td>
+                        Returns the county, place name and co-ordinates associated with the Country code and Postcode
+                        provided.
+                        <br><br>
+                        A Regex string is used to clean input data, removing spaces and unwanted characters. Postcode variants such as "SW1A0AA", "SW1A 0AA" and "SW!"£1A 0$£!AA" are all successful.
+                        <br><br>
+                        For ease of use the Longitude and Latitude generated from this search will automatically populate the
+                        weather and timezone search fields below so that the user does not have to enter it manually.
+                        <br><br>
+                        All APIs on this page produce a short "searching..." message while attempting to contact their respective server.
+                        <br><br>
+                        If any search criteria is incorrect an appropriate error message is displayed on the page and logged to console.
+                        <br><br>
+                        <div class="input-group input-group-sm">
+                            <label for="countryCodeEntry" class="input-group-text">Country Code:</label><br>
+                            <input type="text" id="countryCodeEntry" name="countryCodeEntry" value="GB" )">
+                        </div>
+                        <br>
+                        <div class="input-group input-group-sm">
+                            <label for="postcodeEntry" class="input-group-text">Postcode:</label><br>
+                            <input type="text" id="postcodeEntry" name="postcodeEntry" value="BS3 1HF">
+
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-primary" id="firstRowSubmit">
+                            Submit
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Find Nearby Weather</th>
+                    <td>
+                        Returns the temperature, clouds, weather, humidity and wind speed based on the Longitude and Latitude provided.
+                        <br><br>
+                        <div class="input-group input-group-sm">
+                            <label for="weatherLng" class="input-group-text">Longitude:</label>
+                            <input type="number" name="weatherLng" id="weatherLng" step="any">
+                        </div>
+                        <br>
+                        <div class="input-group input-group-sm">
+                            <label for="weatherLat" class="input-group-text">Latitude:</label>
+                            <input type="number" name="weatherLat" id="weatherLat" step="any">
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-primary" id="secondRowSubmit">
+                            Submit
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Timezone</th>
+                    <td>
+                        Returns the timezone, sunrise, sunset and current time for a region based on the longitude and latitude provided.
+                        <br><br>
+                        <div class="input-group input-group-sm">
+                            <label for="timezoneLng" class="input-group-text">Longitude:</label>
+                            <input type="number" name="timezoneLng" id="timezoneLng" step="any">
+                        </div>
+                        <br>
+                        <div class="input-group input-group-sm">
+                            <label for="timezoneLat" class="input-group-text">Latitude:</label>
+                            <input type="number" name="timezoneLat" id="timezoneLat" step="any">
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-primary" id="thirdRowSubmit">
+                            Submit
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot class="table-primary" id="result">
+            </tfoot>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+    </script>
+    <script src="/libs/js/jquery-3.5.1.min.js" type="application/javascript"></script>
+    <script src="/libs/js/javascript.js" type="application/javascript"></script>
+</body>
+
+</html>
